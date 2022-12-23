@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="AniMixPlay">
+  <meta name="apple-mobile-web-app-title" content="AniMixPlay">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+  <meta property="og:image" content="https://web.archive.org/web/20220720164302im_/https://gogocdn.net/cover/shin-tennis-no-ouji-sama-u-17-world-cup.png">
+  <meta property="og:title" content="Title: Fryz">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#191919">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets//icon.png">
+  <link rel="apple-touch-icon" href="/assets/icon.png">
+  <link rel="manifest" href="/assets/s/manifest.json">
+  <title>Title: Fryz</title>
+  <script src="/assets/lib/jquery.min.js" defer></script>
+  <link rel="stylesheet" href="/assets/fonts.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/style.min3660.css?m6">
+  <script type="text/javascript" src="/assets/v1.min3660.js?m6" defer></script>
+  <script type="text/javascript" src="/assets/common.min3660.js?m6" defer></script>
+  <meta property="og:description" content="Description: Fryz">
+  <meta name="description" content="Description: Fryz">
+</head>
+
+<body>
+
+  <div id="coverlight"></div>
+  <div id="loadcontainer">
+    <div class="loadindicator"></div>
+  </div>
+  <div class="toppart">
+    <div id="playertopmenu" class="floattopsearch">
+      <a id="backicon" onclick="window.history.back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a id="homeicon" href="#home"><i class="glyphicon glyphicon-home"></i></a>
+      <div id="searchbox">
+        <input type="text" style="display:none">
+        <input type="password" style="display:none">
+        <a href="#home"><img class="webtitle" alt="AnimixPlay" src="/assets/logo.png" /></a>
+        <input class="form-control searchbar" pattern=".{3,}" placeholder="Search" id="q" type="search" autocomplete="off" onfocus="searchfocused()" onblur="searchblur()" />
+        <button id="searchbutton" onclick="dosearchfromplayer()"><i class="glyphicon glyphicon-search"></i></button>
+        <a class="topmenubtn" title="Random anime" href="#random"><i class="glyphicon glyphicon-random"></i>Random</a>
+        <a class="topmenubtn" title="A-Z List" href="#list">A-Z List</a>
+      </div>
+      <span id="usernametop"></span>
+      <button id="menumobilebtn2" onclick="showmobilemenu()"><i class="glyphicon glyphicon-menu-hamburger"></i></button>
+      <button id="showsearchbtn" onclick="togglesearch()"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+  </div>
+  <div class="quicksearchcontainer absolutee">
+    <div class="resultcontainer sanimepage">
+      <div id="fullresultbtn">
+        <a onclick="cSearch('full')">Full</a><a onclick="cSearch('gogo')">GOGO</a><a onclick="cSearch('al')">AL</a><a onclick="cSearch('rush')">RUSH</a><a onclick="cSearch('mal')">MAL</a>
+      </div>
+      <ul class="quickresult"></ul>
+    </div>
+  </div>
+  <div id="tips"></div>
+  <div id="topmid"></div>
+  <div class="playersidebar"></div>
+  <div id="playerleftsidebar">
+    <button id="recomendedclosebtn" onclick="showrecomendmenu()"><i class="glyphicon glyphicon-arrow-left"></i></button>
+    <div id="moreinfobtn" onclick="editStreams()"><a>Edit Streams</a></div>
+    <div id="recomendedlist"></div>
+  </div>
+  <div class="playerpage">
+    <div class="subpart eptitle">
+      <div id="eptitle"><span id="eptitleplace">No episode selected</span><span class="altsourcenotif">External Player</span></div>
+      <div id="toprightplayer">
+        <i onclick="switchToLive();" class="proxybtn glyphicon glyphicon glyphicon-transfer"><span class="tooltiptext">Switch</span></i>
+        <i onclick="lighttoggle();" class="lightbtn glyphicon glyphicon-sunglasses"><span class="tooltiptext">Lights</span></i>
+        <i onclick="download();" class="dlbutton glyphicon glyphicon-download-alt"><span class="tooltiptext">Download</span></i>
+        <i onclick="toggleautoplay();" class="autoplaybutton glyphicon glyphicon-flash"><span class="tooltiptext">Autoplay</span></i>
+        <i onclick="playnext();" id="nextbtn" class="glyphicon glyphicon-forward"><span class="tooltiptext">Next ep</span></i>
+      </div>
+    </div>
+    <div id="loadcontainer2" style="display:none;overflow:hidden">
+      <div class="loadindicator"></div>
+    </div>
+    <div id="iframecontainer">
+      <iframe id="iframeplayer" allowfullscreen="true" scrolling="no" src="about:blank"></iframe>
+    </div>
+    <select id="srcselect" onchange="srcChange()"></select>
+    <div id="lowerplayerpage">
+      <div id="aligncenter">
+        <div id="streamtypecontainer">
+          <div id="streamtype">GOGO Stream</div>
+          <div id="showrecomendbtn" onclick="showrecomendmenu();"><i class="glyphicon glyphicon-cog"></i> <span id="changetext">Change</span></div>
+          <div id="sharebtn"><i class="glyphicon glyphicon-share-alt"></i> <span id="shareText">Share</span></div>
+          <div id="openreport" onclick="reportError()"><i class="glyphicon glyphicon-exclamation-sign"></i> <span class="reportText">Report</span></div>
+          <div id="reloadbtn"><i class="glyphicon glyphicon-repeat"></i> <span class="reportText">Reload</span></div>
+        </div>
+		
+        <a id="animebtn"><svg stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" height="25" width="25" id="foldersvg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"></path>
+          </svg></a>
+        <span class="animetitle">Shin Tennis no Ouji-sama: U-17 World Cup</span><button id="trackbtn" onclick="startTrack();"><i class="glyphicon glyphicon-plus"></i> Watchlist</button> <button id="followbtn" onclick="followtoggle();"><i class="glyphicon glyphicon-bell"></i> Follow</button><br>
+        <div id="animeimage"></div>
+        <span id="notice"><br><br><br>Try clear cache &amp; make sure your browser extension not block javascript<br><br><br></span>
+      </div>
+      <div id="epslistplace" style="display:none">{"eptotal":3,"0":"//goload.pro/streaming.php?id=MTg4Nzky&title;=Shin+Tennis+no+Ouji-sama%3A+U-17+World+Cup+Episode+1&typesub;=SUB","1":"//goload.pro/streaming.php?id=MTg5MTAx&title;=Shin+Tennis+no+Ouji-sama%3A+U-17+World+Cup+Episode+2&typesub;=SUB","2":"//goload.pro/streaming.php?id=MTg5NDIw&title;=Shin+Tennis+no+Ouji-sama%3A+U-17+World+Cup+Episode+3&typesub;=SUB"}</div>
+      <div id="flexbottom">
+        <div id="bottomleft">
+          <span id="genres">Genres : <span id="genredata">Sports, School, Shounen</span></span><br>
+          <span id="status">Status : Ongoing</span>
+          <span id="animeinfobottom"><a id="animebtn2">More info</a></span>
+        </div>
+        <div class="epsavailable">
+          Ep total : <span id="epsavailable"></span> <a onclick="updatecheck()" id="updatebtn"><i class="glyphicon glyphicon-refresh"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="flexstreambottom">
+    <div style="flex:1">
+      <div id="disquscommentnew">
+        <button id="showcommentbtn" onclick="showcomment()">Show Comments</button>
+        <div id="disqus_thread"></div>
+      </div>
+      <div id="belowcomment"></div>
+    </div>
+    <div id="streambottomright"></div>
+  </div>
+  <div id="belowbox"></div>
+  <div id="notifiaction">Test</div>
+  <script type="text/javascript">
+    var malid = '50099';
+    var copt = '#gh=goload.pro'; //#recmanga
+    var utoken = '7xAVIiWaaJ';
+    var lastAdded = '2022-07-20 16:10:02';
+  </script>
+</body>
+
+</html>

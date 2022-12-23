@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://animixplay.to/assets/fonts/lexend.woff2")
+      format("woff2"),
+    url("https://animixplay.to/assets/fonts/lexend.woff")
+      format("woff"),
+    url("https://animixplay.to/assets/fonts/lexend.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://animixplay.to/assets/fonts/roboto.woff2")
+      format("woff2"),
+    url("https://animixplay.to/assets/fonts/roboto.woff")
+      format("woff"),
+    url("https://animixplay.to/assets/fonts/roboto.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("https://animixplay.to/assets/fonts/glyph.woff2")
+      format("woff2"),
+    url("https://animixplay.to/assets/fonts/glyph.woff")
+      format("woff"),
+    url("https://animixplay.to/assets/fonts/glyph.ttf")
+      format("truetype"),
+    url("https://animixplay.to/assets/fonts/glyph.svg")
+      format("svg");
+}
