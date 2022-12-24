@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en">
+
+<!-- Mirrored from animixplay.to/list by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Dec 2022 02:04:13 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="AniMixPlay">
+<meta name="apple-mobile-web-app-title" content="AniMixPlay">
+<meta name="msapplication-starturl" content="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+<meta property="og:image" content="icon.png">
+<meta property="og:title" content="A-Z List - AniMixPlay">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#191919">
+<meta name="referrer" content="no-referrer" />
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="assets/s/manifest.json">
+<title>A-Z List - AniMixPlay</title>
+<link rel="stylesheet" href="assets/fonts.min.css">
+<link rel="stylesheet" type="text/css" href="assets/style.min.css">
+<script type="text/javascript" src="assets/all.min.js" defer></script>
+<meta property="og:description" content="List all anime A-Z, AniMixPlay."><meta name="description" content="List all anime A-Z, AniMixPlay.">
+</head>
+<body>
+<div id="loadcontainer"><div class="loadindicator"></div></div>
+<div class="toppart">
+<div id="songContent" style="position: absolute" class="floattopsearch">
+<a id="backicon" onclick="window.history.back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+<a id="homeicon" href="index.html"><i class="glyphicon glyphicon-home"></i></a>
+<div id="searchbox">
+<input type="text" style="display:none">
+<input type="password" style="display:none">
+<a href="index.html"><img class="webtitle" alt="AnimixPlay" src="assets/logo.png" /></a>
+<input class="form-control searchbar" placeholder="Search" id="q" type="search" autocomplete="off" onfocus="searchfocused()" onblur="searchblur()" />
+<button id="searchbutton" onClick="dosearchfromplayer()"><i class="glyphicon glyphicon-search"></i></button>
+<a class="topmenubtn" title="Random anime" href="anime/38843.html"><i class="glyphicon glyphicon-random"></i>Random</a>
+<a class="topmenubtn" title="A-Z List" href="list.html">A-Z List</a>
+</div>
+<button id="showsearchbtn" OnClick="togglesearch()"><i class="glyphicon glyphicon-search"></i></button>
+</div>
+</div>
+<div class="quicksearchcontainer" style="position: absolute;"><div class="resultcontainer sanimepage" style="border-bottom:1px solid #313131;"><div id="fullresultbtn">
+<a onclick="cSearch('full')">Full</a><a onclick="cSearch('gogo')">GOGO</a><a onClick="cSearch('al')">AL</a><a onclick="cSearch('rush')">RUSH</a><a onclick="cSearch('mal')">MAL</a></div>
+</div></div>
+<div class="middle" style="width: 100%; max-width: 1500px; margin-top: 15px; padding: 5px;">
+<div class="leftside">
+<div id="alphabetical">
+<button onClick="show(this,'#')">#</button>
+<button id="default" onClick="show(this,'A')">A</button>
+<button onClick="show(this,'B')">B</button>
+<button onClick="show(this,'C')">C</button>
+<button onClick="show(this,'D')">D</button>
+<button onClick="show(this,'E')">E</button>
+<button onClick="show(this,'F')">F</button>
+<button onClick="show(this,'G')">G</button>
+<button onClick="show(this,'H')">H</button>
+<button onClick="show(this,'I')">I</button>
+<button onClick="show(this,'J')">J</button>
+<button onClick="show(this,'K')">K</button>
+<button onClick="show(this,'L')">L</button>
+<button onClick="show(this,'M')">M</button>
+ <button onClick="show(this,'N')">N</button>
+<button onClick="show(this,'O')">O</button>
+<button onClick="show(this,'P')">P</button>
+<button onClick="show(this,'Q')">Q</button>
+<button onClick="show(this,'R')">R</button>
+<button onClick="show(this,'S')">S</button>
+<button onClick="show(this,'T')">T</button>
+<button onClick="show(this,'U')">U</button>
+<button onClick="show(this,'V')">V</button>
+<button onClick="show(this,'W')">W</button>
+<button onClick="show(this,'X')">X</button>
+<button onClick="show(this,'Y')">Y</button>
+<button onClick="show(this,'Z')">Z</button>
+</div>
+<div style="padding-left:20px;margin-bottom:5px;font-size:14px;">
+Filter
+<label for="typeselect">Stream:</label>
+<select id="typeselect" onchange="typechange()" style="width:120px;">
+<option value="any">Any</option>
+
+<option value="1">GOGO Stream</option>
+
+
+<option value="11">AL Stream</option>
+
+<option value="6">RUSH Stream</option>
+</select>
+<label style="margin-left: 10px;" for="langselect">Sub/Dub:</label>
+<select id="langselect" onchange="langchange()" style="width:60px;">
+<option value="any">Any</option>
+<option value="sub">Sub</option>
+<option value="dub">Dub</option>
+</select>
+<input class="form-control searchbar" placeholder="Filter" id="azsearch" type="search" />
+<button id="searchbutton"><i class="glyphicon glyphicon-search"></i></button>
+</div>
+<div id="listplace">Loading...</div>
+<div id="legendall"><div id="legendtitle">Note</div>
+Filter is exact match text. If you can't find what you look for, use <a onClick="focussearch()" style="cursor: pointer;">advance search</a>.<br><br>
+</div>
+</div>
+<div class="rightcard" id="backtotopbtn" onClick="scrollToTop(300);"><i class="glyphicon glyphicon-menu-up"></i></div>
+</div>
+<div class="leftbottom">
+<span id="donatelabel">RSS</span><a class="customicon rssicon" href="rss.html"></a>
+<div class="floatright">
+<div class="togglelabel">Chat</div>
+<label class="switch">
+<input type="checkbox" id="enablechat">
+<span class="slider round"></span>
+</label> <a href="info.html" style="font-size:17px;margin-left:4px"><i class="glyphicon glyphicon-info-sign"></i></a><br>
+</div>
+</div>
+<div class="footer">
+<span class="bottomtext">
+Watch HD Anime for Free ©2022 <a href="about.html">AniMixPlay</a>
+</span>
+Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.
+</div>
+<div id="notifiaction"></div>
+</body>
+
+<!-- Mirrored from animixplay.to/list by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Dec 2022 02:04:16 GMT -->
+</html>
