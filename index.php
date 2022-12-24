@@ -20,7 +20,10 @@
 <script type="text/javascript" src="/assets/lib/jquery.min.js" defer></script>
 <link rel="stylesheet" href="/assets/fonts.min.css">
 <link rel="stylesheet" type="text/css" href="/assets/style.min980b.css?m8">
+
 <script type="text/javascript" src="/assets/main.minabec.js?m12" defer></script>
+
+
 <meta property="og:description" content="Description: Fryz">
 <meta name="description" content="Description: Fryz">
 </head>
@@ -33,15 +36,15 @@
   <div class="toppart">
     <div id="playertopmenu" class="floattopsearch">
       <a id="backicon" onclick="window.history.back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
-      <a id="homeicon" href="#home"><i class="glyphicon glyphicon-home"></i></a>
+      <a id="homeicon" href="index.html"><i class="glyphicon glyphicon-home"></i></a>
       <div id="searchbox">
         <input type="text" style="display:none">
         <input type="password" style="display:none">
-        <a href="#home"><img class="webtitle" alt="AnimixPlay" src="/assets/logo.png" /></a>
+        <a href="index.html"><img class="webtitle" alt="AnimixPlay" src="/assets/logo.png" /></a>
         <input class="form-control searchbar" pattern=".{3,}" placeholder="Search" id="q" type="search" autocomplete="off" onfocus="searchfocused()" onblur="searchblur()" />
         <button id="searchbutton" onclick="dosearchfromplayer()"><i class="glyphicon glyphicon-search"></i></button>
         <a class="topmenubtn" title="Random anime" href="#random"><i class="glyphicon glyphicon-random"></i>Random</a>
-        <a class="topmenubtn" title="A-Z List" href="#list">A-Z List</a>
+        <a class="topmenubtn" title="A-Z List" href="list.html">A-Z List</a>
       </div>
       <span id="usernametop"></span>
       <button id="menumobilebtn2" onclick="showmobilemenu()"><i class="glyphicon glyphicon-menu-hamburger"></i></button>
@@ -114,7 +117,7 @@
 		  
 		  
 		  
-            <li><a href="https://animixplay.to/v1/kingdom-4th-season/ep18" title="Temp: Title">
+            <li><a href="http://localhost/v1/kingdom-4th-season/ep18" title="Temp: Title">
                 <div class="searchimg">
                   <img class="resultimg" alt="" src="https://cachecow.eu/i/01289d4f1b14c18d6afbe185551f80c6.jpg" />
                   <div class="timetext">2022-12-12 12:12:12</div>
@@ -125,19 +128,7 @@
                   <p class="infotext">EP 0/0</p>
                 </div>
               </a></li>
-			  
-            
-			            <li><a href="https://web.archive.org/web/20220806211845/https://animixplay.to/v1/lycoris-recoil/ep6" title="Lycoris Recoil">
-                <div class="searchimg">
-                  <img class="resultimg" alt="" src="../../../20220807002102im_/https_/cachecow.eu/i/48e2f9144fc4416975ac7b1fc8d1abc9.jpg" />
-                  <div class="timetext">2022-08-06 16:05:03</div>
-                  <div class="rating">821</div>
-                </div>
-                <div class="details">
-                  <p class="name">Lycoris Recoil</p>
-                  <p class="infotext">EP 6/13</p>
-                </div>
-              </a></li>
+			
 			
 			
 			
@@ -237,7 +228,7 @@
       <label class="switch">
         <input type="checkbox" id="enablechat">
         <span class="slider round"></span>
-      </label> <a class="customicon rssicon" href="https://animixplay.to/rss.html"></a> <a href="https://animixplay.to/info.html" style="font-size: 17px;"><i class="glyphicon glyphicon-info-sign"></i></a><a class="customicon twittericon" href="https://twitter.com/AniMixPlay" rel="noreferrer" target="_blank"></a><br>
+      </label> <a class="customicon rssicon" href="https://animixplay.to/rss.html"></a> <a href="/info.html" style="font-size: 17px;"><i class="glyphicon glyphicon-info-sign"></i></a><a class="customicon twittericon" href="https://twitter.com/AniMixPlay" rel="noreferrer" target="_blank"></a><br>
     </div>
   </div>
   <div class="footer">

@@ -130,6 +130,8 @@ if (!self.__WB_pmw) {
               "genresgrid"
             )[0].innerHTML += `<div><input class="form-check-input" type="checkbox" id="${t}" value="${e}" checked>\n                <label class="form-check-label" for="${t}">${e}</label></div>`);
       });
+	  
+	  //^Search Function
       var v = getrequest("orderby");
       if (null !== v && "popular" !== v) {
         var y = ["any", "popular", "rating", "latest"];
@@ -349,7 +351,7 @@ if (!self.__WB_pmw) {
       }, 600);
   }
   const baseURL = "/",
-    cdn = "https://web.archive.org/web/20220807021012/https://cachecow.eu",
+    cdn = "https://cachecow.eu",
     ap = "/a/XsWgdGCnKJfNvDFAM28EV",
     ap2 = "/a/3KjJkx2RVQu1zeXQnrZWc",
     search = "/api/search",
@@ -1021,7 +1023,7 @@ if (!self.__WB_pmw) {
               }, 1e3))
             : $.ajax({
                 url:
-                  "https://web.archive.org/web/20220807021012/https://v11.jt822rupt6miiuc7pq8wwf237.workers.dev/",
+                  "https://v11.jt822rupt6miiuc7pq8wwf237.workers.dev/",
                 type: "POST",
                 data: { q: e, root: location.hostname },
                 success: function (e) {
@@ -1046,7 +1048,7 @@ if (!self.__WB_pmw) {
         (limit = 6),
         $.ajax({
           url:
-            "https://web.archive.org/web/20220807021012/https://api.jikan.moe/v3/search/anime?q=" +
+            "https://api.jikan.moe/v4/search/anime?q=" +
             encodeURIComponent(e) +
             "&limit=" +
             limit,
@@ -1613,7 +1615,7 @@ if (!self.__WB_pmw) {
     var e = gID("gconnectbtn"),
       t = e.innerHTML,
       o =
-        "https://web.archive.org/web/20220807021012/https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=309353198480-dcg47docr6tnaf8hnc8cstfnaiisqgk4.apps.googleusercontent.com&scope=openid%20email&redirect_uri=https%3A//" +
+        "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=309353198480-dcg47docr6tnaf8hnc8cstfnaiisqgk4.apps.googleusercontent.com&scope=openid%20email&redirect_uri=https%3A//" +
         location.hostname +
         "/auth/google&prompt=select_account";
     if (
@@ -1845,7 +1847,7 @@ if (!self.__WB_pmw) {
     if (recapthcaNotLoaded) {
       var e = document.createElement("script");
       (e.src =
-        "https://web.archive.org/web/20220807021012/https://www.google.com/recaptcha/api.js"),
+        "https://www.google.com/recaptcha/api.js"),
         document.body.appendChild(e),
         (recapthcaNotLoaded = !1);
     }

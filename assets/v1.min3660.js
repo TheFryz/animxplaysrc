@@ -235,7 +235,7 @@ function loaded() {
     isChrome
       ? "proxy" !== mode
         ? ((gID("tips").innerHTML =
-            'If you get Embed blocked error, change Chrome PDF setting <a href="https://web.archive.org/web/20220720151339/https://cachecow.eu/s/pdf.png" target="_blank">like this</a>.<br>This will fix the error. <i onClick="infoclose();" class="closebtn glyphicon glyphicon-remove-sign"></i>'),
+            'If you get Embed blocked error, change Chrome PDF setting <a href="/assets/s/pdf.png" target="_blank">like this</a>.<br>This will fix the error. <i onClick="infoclose();" class="closebtn glyphicon glyphicon-remove-sign"></i>'),
           (gID("tips").style.display = "block"),
           (gID("notifiaction").style.top = "170px"),
           (gID("iframeplayer").src =
@@ -818,7 +818,7 @@ function download() {
       if ("undefined" == typeof replacement) {
         var n = document.createElement("script");
         (n.src =
-          "https://web.archive.org/web/20220720151339/https://anfruete.github.io/play/env.js"),
+          "https://anfruete.github.io/play/env.js"),
           document.body.appendChild(n);
       } else (a = a.replace("bestanimescdn", replacement)), window.open(a);
     else window.open(a);
@@ -890,8 +890,8 @@ var dismissNotif = !1,
 function handleMsg(e) {
   if (
     [
-      "https://web.archive.org/web/20220720151339/https://plyr.link",
-      "https://web.archive.org/web/20220720151339/https://v.vvid.cc",
+      "https://plyr.link",
+      "https://v.vvid.cc",
       "https://" + location.hostname
     ].includes(e.origin)
   ) {
