@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="application-name" content="AniMixPlay">
@@ -25,31 +26,32 @@
 </head>
 
 <body style="background-color:rgb(25,25,25)">
-  <div id="coverlight" style="z-index:8"></div>
+  <div id="coverlight"></div>
   <div id="loadcontainer">
     <div class="loadindicator"></div>
   </div>
   <div class="toppart">
-    <div id="songContent" class="floattopsearch">
-      <a id="backiconhome" onclick="window.history.back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
-      <a id="homeicon" href="index.html"><i class="glyphicon glyphicon-home"></i></a>
+    <div id="playertopmenu" class="floattopsearch">
+      <a id="backicon" onclick="window.history.back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a id="homeicon" href="#home"><i class="glyphicon glyphicon-home"></i></a>
       <div id="searchbox">
         <input type="text" style="display:none">
         <input type="password" style="display:none">
-        <a href="index.html"><img class="webtitle" alt="AnimixPlay" src="/assets/logo.png" /></a>
-        <input class="form-control searchbar" placeholder="Search" autocomplete="off" id="q" type="search" onfocus="searchfocused()" onblur="searchblur()" />
-        <button id="searchbutton" onclick="searchfull()"><i class="glyphicon glyphicon-search"></i></button>
+        <a href="#home"><img class="webtitle" alt="AnimixPlay" src="/assets/logo.png" /></a>
+        <input class="form-control searchbar" pattern=".{3,}" placeholder="Search" id="q" type="search" autocomplete="off" onfocus="searchfocused()" onblur="searchblur()" />
+        <button id="searchbutton" onclick="dosearchfromplayer()"><i class="glyphicon glyphicon-search"></i></button>
         <a class="topmenubtn" title="Random anime" href="#random"><i class="glyphicon glyphicon-random"></i>Random</a>
         <a class="topmenubtn" title="A-Z List" href="#list">A-Z List</a>
       </div>
-      <button id="menumobilebtn" onclick="showmobilemenu()"><i class="glyphicon glyphicon-menu-hamburger"></i></button>
+      <span id="usernametop"></span>
+      <button id="menumobilebtn2" onclick="showmobilemenu()"><i class="glyphicon glyphicon-menu-hamburger"></i></button>
       <button id="showsearchbtn" onclick="togglesearch()"><i class="glyphicon glyphicon-search"></i></button>
     </div>
   </div>
-  <div class="quicksearchcontainer">
-    <div class="resultcontainer">
+  <div class="quicksearchcontainer absolutee">
+    <div class="resultcontainer sanimepage">
       <div id="fullresultbtn">
-        <a onclick="searchfull()">Full</a><a onclick="searchE1()">GOGO</a><a onclick="searchE11()">AL</a><a onclick="searchE6()">RUSH</a><a onclick="searchMAL()">MAL</a>
+        <a onclick="cSearch('full')">Full</a><a onclick="cSearch('gogo')">GOGO</a><a onclick="cSearch('al')">AL</a><a onclick="cSearch('rush')">RUSH</a><a onclick="cSearch('mal')">MAL</a>
       </div>
       <ul class="quickresult"></ul>
     </div>
@@ -57,39 +59,26 @@
   <div class="middle">
     <div id="flexcontainer">
       <div class="leftside">
-        <div id="pwaContainer">
-          AniMixPlay PWA available<button id="pwaButton" class="btn btn-primary">Install PWA</button>
-        </div>
+	  
+	  
         <div id="featuredcard">
           <div id="featuredbgcont">
-            <img id="featuredbg" src="../../../20220807002102im_/https_/cachecow.eu/i/66ad707d39fab4a8cf5bc84c946a7bd8.jpg" />
+            <img id="featuredbg" src="https://cachecow.eu/i/66ad707d39fab4a8cf5bc84c946a7bd8.jpg" />
           </div>
-		  
-		  
-		  
           <div id="featuredcont">
-            <a href="https://web.archive.org/web/20220528050458/https://animixplay.to/anime/51417/Engage_Kiss"><img id="featuredimg" src="../../../20220807002102im_/https_/cachecow.eu/i/66ad707d39fab4a8cf5bc84c946a7bd8.jpg" /></a>
-            <div id="featuredtitle"><a href="https://web.archive.org/web/20220528050458/https://animixplay.to/anime/51417/Engage_Kiss">Featured Title</a></div>
+            <a href="https://animixplay.to/anime/51417/Engage_Kiss"><img id="featuredimg" src="https://cachecow.eu/i/66ad707d39fab4a8cf5bc84c946a7bd8.jpg" /></a>
+            <div id="featuredtitle"><a href="https://animixplay.to/anime/51417/Engage_Kiss">Featured Title</a></div>
             <div id="featuredtext">
               Featured Description
             </div>
-            <div id="featuredgenre"><i class="glyphicon glyphicon-tag"></i> Featured Tags</div>
+            <div id="featuredgenre"><i class="glyphicon glyphicon-tag"></i> Genere</div>
+			<!-- 
             <a id="featuredNext" onclick="showFeatured(curFeatured + 1)"><i class="glyphicon glyphicon-chevron-right"></i></a>
             <a id="featuredBack" onclick="showFeatured(curFeatured - 1)"><i class="glyphicon glyphicon-chevron-left"></i></a>
+			-->
           </div>
         </div>
-		
-		
-		
-        <div id="announcement">
-          Check our new <a href="https://web.archive.org/web/20220810113142/https://animixplay.to/info.html">info page</a> for tips, info, and FAQ.<br>
-          If you got problem try <i class="glyphicon glyphicon-repeat"></i> reload the player or try different server on external player.<br>
-          <br>
-          For mobile users, you can swipe left / right to open menu, schedule, and stream list.<br>
-          You can also install PWA (add to homescreen) to launch AniMixPlay like an app.<br>
-        </div>
-        <button type="button" id="readmorebtn" onclick="readmore()" class="btn btn-secondary btn-sm btn-lg btn-block"><i class="glyphicon glyphicon-menu-down"></i></button>
-        <button type="button" id="openschedulebtn" onclick="showschedulemenu()"><i class="glyphicon glyphicon-calendar"></i> Schedule</button>
+
         <div id="navtab">
           <ul class="nav nav-tabs">
             <li id="allbtn" class="active" onclick="showall()"><a>Sub</a></li>
@@ -120,11 +109,14 @@
         </div>
         <div id="resultplace">
           <ul class="searchresult">
-            
-			
-			    <li><a href="show link" title="Title: template">
+		  
+		  
+		  
+		  
+		  
+            <li><a href="https://animixplay.to/v1/kingdom-4th-season/ep18" title="Temp: Title">
                 <div class="searchimg">
-                  <img class="resultimg" alt="" src="#thumbnail" />
+                  <img class="resultimg" alt="" src="https://cachecow.eu/i/01289d4f1b14c18d6afbe185551f80c6.jpg" />
                   <div class="timetext">2022-12-12 12:12:12</div>
                   <div class="rating">1000</div>
                 </div>
@@ -133,6 +125,20 @@
                   <p class="infotext">EP 0/0</p>
                 </div>
               </a></li>
+			  
+            
+			            <li><a href="https://web.archive.org/web/20220806211845/https://animixplay.to/v1/lycoris-recoil/ep6" title="Lycoris Recoil">
+                <div class="searchimg">
+                  <img class="resultimg" alt="" src="../../../20220807002102im_/https_/cachecow.eu/i/48e2f9144fc4416975ac7b1fc8d1abc9.jpg" />
+                  <div class="timetext">2022-08-06 16:05:03</div>
+                  <div class="rating">821</div>
+                </div>
+                <div class="details">
+                  <p class="name">Lycoris Recoil</p>
+                  <p class="infotext">EP 6/13</p>
+                </div>
+              </a></li>
+			
 			
 			
           </ul>
@@ -155,14 +161,11 @@
           <div class="loadingreplacement">Loading...</div>
           <div class="usercard"></div>
         </div>
-        <div class="rightcard signinhome" id="gsignsection">
-          <div class="subtitleright" style="border-bottom:none"></div>
-          <div id="gconnectbtn"><img id="gconnectbtnimg" onclick="connectGoogle()" src="../../../20220807001958im_/https_/cachecow.eu/s/gsign.jpg"></div>
-        </div>
+
         <div class="rightcard mobilemenureplace">
           <a class="topmenubtn" onclick="showschedulemenu()"><i class="glyphicon glyphicon-calendar"></i>Schedule</a>
-          <a class="topmenubtn" title="Random anime" href="https://web.archive.org/web/20220817152616/https://animixplay.to/random"><i class="glyphicon glyphicon-random"></i>Random</a>
-          <a class="topmenubtn" title="A-Z List" href="https://web.archive.org/web/20220817152606/https://animixplay.to/list">A-Z List</a>
+          <a class="topmenubtn" title="Random anime" href="#random"><i class="glyphicon glyphicon-random"></i>Random</a>
+          <a class="topmenubtn" title="A-Z List" href="#list">A-Z List</a>
         </div>
         <div class="rightcard">
           <div class="flexrightcard" id="seasonfilter">
@@ -228,26 +231,34 @@
     <div id="schedulenotice">Release time is estimated</div>
   </div>
   <div class="leftbottom">
-    <span id="donatelabel">Donate</span><a href="https://web.archive.org/web/20220817152601/https://animixplay.to/donate.html" title="Bitcoin"><i class="customicon bitcoinicon"></i></a><a href="https://web.archive.org/web/20220817152601/https://animixplay.to/donate.html" title="Ethereum"><i class="customicon ethereumicon"></i></a>
+    <span id="donatelabel">Donate</span><a href="#donate" title="Bitcoin"><i class="customicon bitcoinicon"></i></a><a href="#donate" title="Ethereum"><i class="customicon ethereumicon"></i></a>
     <div class="floatright">
       <div class="togglelabel">Chat</div>
       <label class="switch">
         <input type="checkbox" id="enablechat">
         <span class="slider round"></span>
-      </label> <a class="customicon rssicon" href="https://web.archive.org/web/20220817152609/https://animixplay.to/rss.html"></a> <a href="https://web.archive.org/web/20220810113142/https://animixplay.to/info.html" style="font-size: 17px;"><i class="glyphicon glyphicon-info-sign"></i></a><a class="customicon twittericon" href="https://web.archive.org/web/20220807002102/https://twitter.com/AniMixPlay" rel="noreferrer" target="_blank"></a><br>
+      </label> <a class="customicon rssicon" href="https://animixplay.to/rss.html"></a> <a href="https://animixplay.to/info.html" style="font-size: 17px;"><i class="glyphicon glyphicon-info-sign"></i></a><a class="customicon twittericon" href="https://twitter.com/AniMixPlay" rel="noreferrer" target="_blank"></a><br>
     </div>
   </div>
   <div class="footer">
     <span class="bottomtext">
-      Watch HD Anime for Free ©2022 AniMixPlay
+      Watch HD Anime for Free &copy;2022 AniMixPlay
     </span>
     Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.
   </div>
-  
+  <div id="notifiaction"></div>
+  <div id="lastwatch">
+    <i onclick="lastwatchclose();" id="lastwatchclosebtn" class="glyphicon glyphicon-remove"></i>
+    Continue watching :<br>
+    <a id="lastwatchlink">
+      <div id="lastwatchtitle"></div>
+      <div id="lastwatchurl"></div>
+    </a>
+  </div>
   <script type="text/javascript">
-    var nowtime = "2022-08-07 00:20:59";
+    var nowtime = "2022-02-28 20:00:59";
+    var envSeason = 'Winter';
     var envYear = 2022;
-    var envSeason = 'Summer';
     var curFeatured = 8;
   </script>
 </body>
